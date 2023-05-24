@@ -1,0 +1,110 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root { 
+    --breakpoint-small: 23.4375em;
+
+    --primary-soft-blue-color: hsl(215, 51%, 70%);
+    --primary-cyan-color: hsl(178, 100%, 50%);
+
+    --dark-blue-background-color: hsl(217, 54%, 11%);
+    --dark-blue-card-color: hsl(216, 50%, 16%);
+    --dark-blue-line-color: hsl(215, 32%, 27%);
+    --white-color: hsl(0, 0%, 100%);
+
+    --card-width: 20.4375rem;
+    --card-height: 33.9375rem;
+
+    --content-width: 17.375rem;
+    
+    --avatar-size: 2.0625rem
+}
+
+body {
+    background-color: var(--dark-blue-background-color);
+    font-family: 'Outfit', sans-serif;
+}
+
+h1 {
+    color: var(--white-color);
+}
+
+p {
+    color: var(--primary-soft-blue-color);
+}
+
+.container {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    min-width: var(--breakpoint-small);
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: var(--card-width);
+    height: var(--card-height);
+    background-color: var(--dark-blue-card-color);
+}
+
+
+.card__illustration,
+.card__heading,
+.card__paragraph,
+.card__detail,
+.card__cover, 
+.creator {
+    width: var(--content-width);
+}
+
+.card__detail {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.currency,
+.duration {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.currency {
+    flex-basis: 5.53rem;
+}
+
+.duration {
+    flex-basis: 5.793125rem;
+}
+
+.currency__value {
+    color: var(--primary-cyan-color);
+}
+
+.card__divider {
+    height: 1px;
+    width: var(--content-width);
+    border: none;
+    background-color: var(--dark-blue-line-color);
+}
+
+.creator {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.creator__avatar {
+    width: var(--avatar-size);
+    height: var(--avatar-size);
+}
