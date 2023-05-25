@@ -18,9 +18,10 @@
     --card-width: 20.4375rem;
     --card-height: 33.9375rem;
 
-    --content-width: 17.375rem;
+    --content-size: 17.375rem;
     
-    --avatar-size: 2.0625rem
+    --avatar-size: 2.0625rem;
+    /* --clock-icon-size: 1rem; */
 }
 
 body {
@@ -30,10 +31,24 @@ body {
 
 h1 {
     color: var(--white-color);
+    font-weight: 600;
+    font-size: 1.375rem;
+    line-height: 1.75rem;
 }
 
 p {
     color: var(--primary-soft-blue-color);
+    font-weight: 300;
+    font-size: 1.125rem;
+    line-height: 1.625rem;
+}
+
+.currency > *, 
+.duration > *,
+.creator > * {
+    font-weight: 400;
+    font-size: 0.9375rem;
+    line-height: 1.1875rem;
 }
 
 .container {
@@ -62,8 +77,28 @@ p {
 .card__detail,
 .card__cover, 
 .creator {
-    width: var(--content-width);
+    width: var(--content-size);
 }
+
+
+.card__illustration {
+    border-radius: 0.8rem;
+    height: var(--content-size);
+}
+
+.card__illustration:hover {
+    background: url('../../assets/icon-view.svg') no-repeat center, var(--primary-cyan-color);
+}
+
+.card__cover {
+    border-radius: 0.8rem;
+}
+
+.card__cover:hover {
+    opacity: 0.4;
+    cursor: pointer;
+}
+
 
 .card__detail {
     display: flex;
@@ -86,13 +121,17 @@ p {
     flex-basis: 5.793125rem;
 }
 
+.duration__logo {
+    /* width: var(--clock-icon-size); */
+}
+
 .currency__value {
     color: var(--primary-cyan-color);
 }
 
 .card__divider {
     height: 1px;
-    width: var(--content-width);
+    width: var(--content-size);
     border: none;
     background-color: var(--dark-blue-line-color);
 }
@@ -102,6 +141,12 @@ p {
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
+    gap: 1rem;
+}
+
+.creator strong {
+    color: var(--white-color);
+    font-weight: 400;
 }
 
 .creator__avatar {
