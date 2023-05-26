@@ -6,6 +6,7 @@
 
 :root { 
     --breakpoint-small: 23.4375em;
+    --breakpoint-large: 90em;
 
     --primary-soft-blue-color: hsl(215, 51%, 70%);
     --primary-cyan-color: hsl(178, 100%, 50%);
@@ -18,10 +19,23 @@
     --card-width: 20.4375rem;
     --card-height: 33.9375rem;
 
+    --card-border-radius-size: 1rem;
+    --illustration-border-radius-size: 0.8rem;
+
+    --heading-size: 1.375rem;
+    --heading-line: 1.75rem;
+
+    --paragraph-size: 1.125rem;
+    --paragraph-line: 1.625rem;
+
+    --detail-size: 0.9375rem;
+    --detail-line: 1.1875rem;
+
     --content-size: 17.375rem;
-    
     --avatar-size: 2.0625rem;
-    /* --clock-icon-size: 1rem; */
+
+    --currency-block-size: 5.53rem;
+    --duration-block-size: 5.793125rem;
 }
 
 body {
@@ -30,25 +44,30 @@ body {
 }
 
 h1 {
-    color: var(--white-color);
     font-weight: 600;
-    font-size: 1.375rem;
-    line-height: 1.75rem;
+    color: var(--white-color);
+    font-size: var(--heading-size);
+    line-height: var(--heading-line);
 }
 
 p {
-    color: var(--primary-soft-blue-color);
     font-weight: 300;
-    font-size: 1.125rem;
-    line-height: 1.625rem;
+    color: var(--primary-soft-blue-color);
+    font-size: var(--paragraph-size);
+    line-height: var(--paragraph-line);
 }
 
 .currency > *, 
 .duration > *,
 .creator > * {
     font-weight: 400;
-    font-size: 0.9375rem;
-    line-height: 1.1875rem;
+    font-size: var(--detail-size);
+    line-height: var(--detail-line);
+}
+
+.currency__value {
+    font-weight: 600;
+    color: var(--primary-cyan-color);
 }
 
 .container {
@@ -64,7 +83,8 @@ p {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
+    border-radius: var(--card-border-radius-size);
     width: var(--card-width);
     height: var(--card-height);
     background-color: var(--dark-blue-card-color);
@@ -82,23 +102,42 @@ p {
 
 
 .card__illustration {
-    border-radius: 0.8rem;
+    position: relative;
+    border-radius: var(--illustration-border-radius-size);
     height: var(--content-size);
 }
 
 .card__illustration:hover {
-    background: url('../../assets/icon-view.svg') no-repeat center, var(--primary-cyan-color);
+    background: var(--primary-cyan-color);
+    cursor: pointer;
 }
 
 .card__cover {
-    border-radius: 0.8rem;
+    border-radius: var(--illustration-border-radius-size);
 }
 
 .card__cover:hover {
     opacity: 0.4;
-    cursor: pointer;
 }
 
+.card__cover:hover + .card__eye--hover {
+    display: block;
+}
+
+.card__eye--hover {
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.card__heading:hover, .creator strong:hover {
+    color: var(--primary-cyan-color);
+    cursor: pointer;
+}
 
 .card__detail {
     display: flex;
@@ -114,19 +153,11 @@ p {
 }
 
 .currency {
-    flex-basis: 5.53rem;
+    flex-basis: var(--currency-block-size);
 }
 
 .duration {
-    flex-basis: 5.793125rem;
-}
-
-.duration__logo {
-    /* width: var(--clock-icon-size); */
-}
-
-.currency__value {
-    color: var(--primary-cyan-color);
+    flex-basis: var(--duration-block-size);
 }
 
 .card__divider {
@@ -149,7 +180,47 @@ p {
     font-weight: 400;
 }
 
+
 .creator__avatar {
     width: var(--avatar-size);
     height: var(--avatar-size);
+    border: 1px solid var(--white-color);
+    border-radius: 1rem;
+}
+
+
+.attribution {
+    background-color: var(--dark-blue-card-color);
+    text-align: center;
+}
+
+.attribution a {
+    color: var(--white-color);
+    text-decoration: none;
+    
+}
+
+.attribution a:hover {
+    text-decoration: underline;
+}
+
+@media screen and (min-width: 90em) {
+    :root { 
+        --card-width: 21.875rem;
+        --card-height: 37.25rem;
+    
+        --content-size: 18.875rem;
+
+        --heading-size: 1.375rem;
+        --heading-line: 1.75rem;
+    
+        --paragraph-size: 1.125rem;
+        --paragraph-line: 1.625rem;
+    
+        --detail-size: 1rem;
+        --detail-line: 1.25rem;
+    
+        --currency-block-size: 5.8425rem;
+        --duration-block-size: 6.04375rem;
+    }
 }
